@@ -1,7 +1,15 @@
+import { IconContext } from "react-icons";
+import { HiPlus } from "react-icons/hi2";
+
 export default function Header() {
   return (
-    <div>
-      <h1>What To Do?</h1>
+    <div id="header">
+      <span>What To Do?</span>
+      <button>
+        <IconContext.Provider value={{ size: "30px", color: "#ab9649" }}>
+          <HiPlus className="button-icons" />
+        </IconContext.Provider>
+      </button>
     </div>
   );
 }

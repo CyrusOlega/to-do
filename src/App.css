@@ -1,38 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  cursor: pointer;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
+}
+#header span {
+  margin-block-start: -0px;
+  margin-block-end: -0px;
+  line-height: 100px;
+  height: 100px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 500%;
+  font-family: "Patrick Hand", cursive;
+  text-shadow: 5px 5px 10px rgba(226, 226, 226, 0.495);
+}
+#header button {
+  display: flex;
+  background-color: #ffdf6d;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0px;
+  padding: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border: none;
+  border-width: 1px;
 }
 
-.App-link {
-  color: #61dafb;
+.button-icons {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#sticky-note-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sticky-note {
+  background-color: #ffdf6d;
+  width: 200px;
+  height: 200px;
+  box-shadow: 5px 5px 10px 5px rgba(210, 210, 210, 0.293);
+  margin: 10px;
 }
