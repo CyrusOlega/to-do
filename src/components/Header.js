@@ -1,5 +1,5 @@
 import { IconContext } from "react-icons";
-import { CiStickyNote } from "react-icons/ci";
+import { PiNotePencilThin } from "react-icons/pi";
 
 export default function Header() {
   return (
@@ -7,7 +7,7 @@ export default function Header() {
       <span>What To Do?</span>
       <button>
         <IconContext.Provider value={{ size: "40px", color: "#766835" }}>
-          <CiStickyNote className="button-icons" />
+          <PiNotePencilThin className="button-icons" />
         </IconContext.Provider>
       </button>
     </div>
