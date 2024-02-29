@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { IconContext } from "react-icons";
 import { PiNotePencilThin } from "react-icons/pi";
+import useOnClickOutside from "../hooks/useOnClickOutside";
 
 export default function Header() {
+  const [modal, setModal] = useState(false);
+
   return (
     <div id="header">
       <span>What To Do?</span>
