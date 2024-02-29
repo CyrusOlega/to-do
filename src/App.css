@@ -95,6 +95,16 @@ button {
 }
 
 .input-form {
+  text-align: center;
+  width: 50%;
   background-color: transparent;
   border: none;
+  transition: 0.3s;
+}
+.input-form:focus {
+  outline-width: 0;
+  box-shadow: 0 -1px 0 #00000076 inset;
+}
+.input-form:hover {
+  box-shadow: 0 -1px 0 #00000076 inset;
 }
