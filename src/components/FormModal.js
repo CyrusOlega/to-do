@@ -67,8 +67,10 @@ const FormModal = forwardRef(function FormModal(props, ref) {
               style={overflowGradientStyle}
             />
             <IconContext.Provider value={{ size: "30px" }}>
-              {/* 1. if there is overflow and is scrolled NOT to bottom */}
-              {/* 2. if there is overflow and is scrolled to bottom */}
+              {/* down arrow only appears when there is overflow and is not scrolled to the bottom.
+                  when the animation ends, it checks if the textarea is scrolled all the way to the 
+                  bottom. if it is, the removeDownArrow variable will be set to true, which will 
+                  cause <SlArrowDown> to not render*/}
               {isOverflow && !renderDownArrow && (
                 <SlArrowDown
                   id="down-arrow"
