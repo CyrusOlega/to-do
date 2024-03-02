@@ -1,6 +1,6 @@
 import { forwardRef, useState } from "react";
 import { IconContext } from "react-icons";
-import { IoIosArrowDown } from "react-icons/io";
+import { SlArrowDown } from "react-icons/sl";
 
 const FormModal = forwardRef(function FormModal(props, ref) {
   const [isOverflow, setOverflow] = useState(false);
@@ -48,8 +48,8 @@ const FormModal = forwardRef(function FormModal(props, ref) {
             />
             {/* show arrow icon when there is overflow and is not scrolled to the bottom */}
             {!(isOverflow && isScrollbarBottom) && (
-              <IconContext.Provider value={{ size: "50px" }}>
-                <IoIosArrowDown id="down-arrow" />
+              <IconContext.Provider value={{ size: "30px" }}>
+                <SlArrowDown id="down-arrow" />
               </IconContext.Provider>
             )}
           </div>
