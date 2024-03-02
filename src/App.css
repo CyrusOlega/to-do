@@ -94,7 +94,7 @@ button {
   width: 500px;
   height: 500px;
   background-color: #ffdf6d;
-  border-radius: 0px 0px 40px 0px;
+  border-radius: 0px 0px 70px 0px;
 }
 
 #form-modal form {
@@ -150,8 +150,6 @@ input {
   background-color: transparent;
   border: none;
   scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 #text-area-container textarea:focus {
   outline-width: 0;
