@@ -11,8 +11,6 @@ const FormModal = forwardRef(function FormModal(props, ref) {
   //set isOverflow state when there is overflow (when the textarea becomes scrollable, even though the scrollbar is hidden through css)
   const checkOverflow = () => {
     const textArea = document.getElementById("text-area");
-    console.log("clientHeight" + textArea.clientHeight);
-    console.log("scrollHeight" + textArea.scrollHeight);
     if (textArea.clientHeight < textArea.scrollHeight) {
       setOverflow(true);
     } else {
