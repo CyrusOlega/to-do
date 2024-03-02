@@ -155,7 +155,7 @@ input {
   outline-width: 0;
 }
 
-@keyframes moveToPosition {
+@keyframes arrowFadeIn {
   from {
     color: transparent;
     bottom: 40px;
@@ -165,9 +165,27 @@ input {
     bottom: 30px;
   }
 }
-#down-arrow {
+#down-arrow-appear {
   position: absolute;
-  animation-name: moveToPosition;
+  animation-name: arrowFadeIn;
+  bottom: 30px;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+}
+@keyframes arrowFadeOut {
+  from {
+    color: black;
+    bottom: 30px;
+  }
+  to {
+    color: transparent;
+    bottom: 40px;
+  }
+}
+#down-arrow-disappear {
+  position: absolute;
+  animation-name: arrowFadeOut;
+  color: transparent;
   bottom: 30px;
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;

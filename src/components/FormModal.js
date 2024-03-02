@@ -5,11 +5,14 @@ import { SlArrowDown } from "react-icons/sl";
 const FormModal = forwardRef(function FormModal(props, ref) {
   const [isOverflow, setOverflow] = useState(false);
   const [isScrollbarBottom, setScrollbarPosition] = useState(false);
-  const [overflowGradientStyle, setOverflowGradientStyle] = useState(null);
+  const [overflowGradientStyle, setOverflowGradientStyle] = useState(undefined);
+  const [animationStyle, setAnimation] = useState(undefined);
 
   //set isOverflow state when there is overflow (when the textarea becomes scrollable, even though the scrollbar is hidden through css)
   const checkOverflow = () => {
     const textArea = document.getElementById("text-area");
+    console.log("clientHeight" + textArea.clientHeight);
+    console.log("scrollHeight" + textArea.scrollHeight);
     if (textArea.clientHeight < textArea.scrollHeight) {
       setOverflow(true);
     } else {
@@ -22,12 +25,13 @@ const FormModal = forwardRef(function FormModal(props, ref) {
   const checkScrollPosition = () => {
     if (isOverflow) {
       const textArea = document.getElementById("text-area");
+      // if scrolled to bottom
       if (
         textArea.scrollHeight ===
         textArea.clientHeight + textArea.scrollTop + 1
       ) {
         setScrollbarPosition(true);
-        setOverflowGradientStyle(null);
+        setOverflowGradientStyle(undefined);
       } else {
         setScrollbarPosition(false);
         setOverflowGradientStyle({
@@ -51,16 +55,19 @@ const FormModal = forwardRef(function FormModal(props, ref) {
               id="text-area"
               name="Content"
               placeholder="Enter Task..."
-              onKeyDown={checkOverflow}
+              onKeyUp={checkOverflow}
               onScroll={checkScrollPosition}
               style={overflowGradientStyle}
             />
-            {/* show arrow icon when there is overflow and is not scrolled to the bottom */}
-            {!(isOverflow && isScrollbarBottom) && (
-              <IconContext.Provider value={{ size: "30px" }}>
-                <SlArrowDown id="down-arrow" />
-              </IconContext.Provider>
-            )}
+            <IconContext.Provider value={{ size: "30px" }}>
+              {/* 1. if there is overflow and is scrolled NOT to bottom */}
+              {/* 2. if there is overflow and is scrolled to bottom */}
+              {isOverflow && !isScrollbarBottom ? (
+                <SlArrowDown id="down-arrow-appear" />
+              ) : (isOverflow && isScrollbarBottom) || !isOverflow ? (
+                <SlArrowDown id="down-arrow-disappear" />
+              ) : null}
+            </IconContext.Provider>
           </div>
         </form>
       </div>
