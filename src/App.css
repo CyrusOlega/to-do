@@ -155,7 +155,20 @@ input {
   outline-width: 0;
 }
 
+@keyframes moveToPosition {
+  from {
+    color: transparent;
+    bottom: 40px;
+  }
+  to {
+    color: black;
+    bottom: 30px;
+  }
+}
 #down-arrow {
   position: absolute;
+  animation-name: moveToPosition;
   bottom: 30px;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
 }
