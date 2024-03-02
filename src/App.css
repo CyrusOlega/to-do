@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+:root {
+  --font: "Patrick Hand", cursive;
+}
 
 .App {
   text-align: center;
@@ -24,7 +27,7 @@ button {
   font-weight: 500;
   text-align: center;
   font-size: 500%;
-  font-family: "Patrick Hand", cursive;
+  font-family: var(--font);
   text-shadow: 5px 5px 10px rgba(226, 226, 226, 0.495);
 }
 #header button {
@@ -63,12 +66,12 @@ button {
   border-radius: 0px 0px 30px 0px;
 }
 .title {
-  font-family: "Patrick Hand", cursive;
+  font-family: var(--font);
   font-size: 20px;
   height: 25px;
 }
 .content {
-  font-family: "Patrick Hand", cursive;
+  font-family: var(--font);
   font-size: 20px;
   overflow: hidden;
   height: calc(100% - 25px);
@@ -94,15 +97,28 @@ button {
   border-radius: 0px 0px 70px 0px;
 }
 
-#input-container {
+#form-modal form {
   display: flex;
   justify-content: center;
-  align-items: end;
-  height: 50px;
   width: 100%;
 }
 
+input {
+  font-size: 24px;
+}
+#input-container {
+  display: flex;
+  justify-content: center;
+  border: solid;
+  border-color: #8f7d3a;
+  border-width: 0px 0px 1px 0px;
+  align-items: end;
+  height: 50px;
+  width: 90%;
+}
+
 .input-form {
+  font-family: var(--font);
   text-align: center;
   width: 50%;
   background-color: transparent;
@@ -111,8 +127,7 @@ button {
 }
 .input-form:focus {
   outline-width: 0;
-  box-shadow: 0 -1px 0 #00000076 inset;
 }
-.input-form:hover {
+/* .input-form:hover {
   box-shadow: 0 -1px 0 #00000076 inset;
-}
+} */
