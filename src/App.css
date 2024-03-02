@@ -94,6 +94,14 @@ button {
   border-radius: 0px 0px 70px 0px;
 }
 
+#input-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 50px;
+  width: 100%;
+}
+
 .input-form {
   text-align: center;
   width: 50%;

@@ -5,7 +5,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
     <div id="form-modal-container">
       <div id="form-modal" ref={ref}>
         <form>
-          <div id="header">
+          <div id="input-container">
             <input name="Title" placeholder="Title" className="input-form" />
           </div>
         </form>
