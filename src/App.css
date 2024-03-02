@@ -156,3 +156,8 @@ input {
 #text-area-container textarea:focus {
   outline-width: 0;
 }
+
+#down-arrow {
+  position: absolute;
+  bottom: 10px;
+}
