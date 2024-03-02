@@ -94,13 +94,16 @@ button {
   width: 500px;
   height: 500px;
   background-color: #ffdf6d;
-  border-radius: 0px 0px 70px 0px;
+  border-radius: 0px 0px 40px 0px;
 }
 
 #form-modal form {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
 }
 
 input {
@@ -112,9 +115,10 @@ input {
   border: solid;
   border-color: #8f7d3a;
   border-width: 0px 0px 1px 0px;
-  align-items: end;
+  align-items: flex-end;
   height: 50px;
   width: 90%;
+  margin-bottom: 10px;
 }
 
 .input-form {
@@ -128,6 +132,27 @@ input {
 .input-form:focus {
   outline-width: 0;
 }
-/* .input-form:hover {
-  box-shadow: 0 -1px 0 #00000076 inset;
-} */
+
+#text-area-container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: calc(100% - 80px);
+  margin-bottom: 40px;
+}
+
+#text-area-container textarea {
+  font-size: 20px;
+  font-family: var(--font);
+  resize: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+#text-area-container textarea:focus {
+  outline-width: 0;
+}

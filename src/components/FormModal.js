@@ -8,6 +8,9 @@ const FormModal = forwardRef(function FormModal(props, ref) {
           <div id="input-container">
             <input name="Title" placeholder="Title" className="input-form" />
           </div>
+          <div id="text-area-container">
+            <textarea name="Content" placeholder="Enter Task..."/>
+          </div>
         </form>
       </div>
     </div>
