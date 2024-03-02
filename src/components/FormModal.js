@@ -4,9 +4,10 @@ import { SlArrowDown } from "react-icons/sl";
 
 const FormModal = forwardRef(function FormModal(props, ref) {
   const [isOverflow, setOverflow] = useState(false);
-  const [isScrollbarBottom, setScrollbarPosition] = useState(false);
+  const [isScrollbarBottom, setScrollbarBottom] = useState(false);
   const [overflowGradientStyle, setOverflowGradientStyle] = useState(undefined);
   const [animationStyle, setAnimation] = useState(undefined);
+  const [renderDownArrow, setRemoveDownArrow] = useState(false);
 
   //set isOverflow state when there is overflow (when the textarea becomes scrollable, even though the scrollbar is hidden through css)
   const checkOverflow = () => {
@@ -26,17 +27,25 @@ const FormModal = forwardRef(function FormModal(props, ref) {
       // if scrolled to bottom
       if (
         textArea.scrollHeight ===
-        textArea.clientHeight + textArea.scrollTop + 1
+        textArea.clientHeight + textArea.scrollTop + 1 //for some reason its always off by 1
       ) {
-        setScrollbarPosition(true);
+        setScrollbarBottom(true);
         setOverflowGradientStyle(undefined);
+        setAnimation({
+          animationName: "arrowFadeOut",
+          color: "transparent",
+        });
       } else {
-        setScrollbarPosition(false);
+        setScrollbarBottom(false);
         setOverflowGradientStyle({
           WebkitMaskImage:
             "linear-gradient(to bottom, black 90%, transparent 100%)",
           MaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
         });
+        setAnimation({
+          animationName: "arrowFadeIn",
+        });
+        setRemoveDownArrow(false);
       }
     }
   };
@@ -60,11 +69,15 @@ const FormModal = forwardRef(function FormModal(props, ref) {
             <IconContext.Provider value={{ size: "30px" }}>
               {/* 1. if there is overflow and is scrolled NOT to bottom */}
               {/* 2. if there is overflow and is scrolled to bottom */}
-              {isOverflow && !isScrollbarBottom ? (
-                <SlArrowDown id="down-arrow-appear" />
-              ) : (isOverflow && isScrollbarBottom) || !isOverflow ? (
-                <SlArrowDown id="down-arrow-disappear" />
-              ) : null}
+              {isOverflow && !renderDownArrow && (
+                <SlArrowDown
+                  id="down-arrow"
+                  style={animationStyle}
+                  onAnimationEnd={() => {
+                    if (isScrollbarBottom) setRemoveDownArrow(true);
+                  }}
+                />
+              )}
             </IconContext.Provider>
           </div>
         </form>

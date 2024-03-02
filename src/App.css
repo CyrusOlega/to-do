@@ -165,13 +165,6 @@ input {
     bottom: 30px;
   }
 }
-#down-arrow-appear {
-  position: absolute;
-  animation-name: arrowFadeIn;
-  bottom: 30px;
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.3s;
-}
 @keyframes arrowFadeOut {
   from {
     color: black;
@@ -182,10 +175,8 @@ input {
     bottom: 40px;
   }
 }
-#down-arrow-disappear {
+#down-arrow {
   position: absolute;
-  animation-name: arrowFadeOut;
-  color: transparent;
   bottom: 30px;
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
