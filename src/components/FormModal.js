@@ -6,6 +6,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
   const [isOverflow, setOverflow] = useState(false);
   const [isScrollbarBottom, setScrollbarPosition] = useState(false);
 
+  //set isOverflow state when there is overflow (when the textarea becomes scrollable, even though the scrollbar is hidden through css)
   const checkOverflow = () => {
     const textArea = document.getElementById("text-area");
     if (textArea.clientHeight < textArea.scrollHeight) {
@@ -15,6 +16,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
     }
   };
 
+  //set isScrollbarBottom state to true when the textarea is scrolled all the way to the bottom, otherwise set to false
   const checkScrollPosition = () => {
     if (isOverflow) {
       const textArea = document.getElementById("text-area");
@@ -44,7 +46,8 @@ const FormModal = forwardRef(function FormModal(props, ref) {
               onKeyDown={checkOverflow}
               onScroll={checkScrollPosition}
             />
-            {isOverflow && isScrollbarBottom && (
+            {/* show arrow icon when there is overflow and is not scrolled to the bottom */}
+            {!(isOverflow && isScrollbarBottom) && (
               <IconContext.Provider value={{ size: "50px" }}>
                 <IoIosArrowDown id="down-arrow" />
               </IconContext.Provider>
