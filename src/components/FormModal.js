@@ -78,7 +78,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
             />
           </div>
         </form>
-        <IconContext.Provider value={{ size: "100px" }}>
+        <IconContext.Provider value={{ size: "40px" }}>
           {/* down arrow only appears when there is overflow and is not scrolled to the bottom.
                   when the animation ends, it checks if the textarea is scrolled all the way to the 
                   bottom. if it is, the removeDownArrow variable will be set to true, which will 
