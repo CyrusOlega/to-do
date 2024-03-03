@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div>
-      {modal && <FormModal ref={ref} />}
+      {modal && <FormModal ref={ref} toggleModal={toggleModal} />}
       <Header toggleModal={toggleModal} />
       <Body />
     </div>

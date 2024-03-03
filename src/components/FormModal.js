@@ -14,6 +14,11 @@ const FormModal = forwardRef(function FormModal(props, ref) {
     const textAreaElement = document.getElementById("text-area");
     if (textAreaElement.clientHeight < textAreaElement.scrollHeight) {
       setOverflow(true);
+      setAnimation({
+        bottom: "60px",
+        animationName: "arrowFadeIn",
+      });
+      setRemoveDownArrow(false);
     } else {
       setOverflow(false);
     }
@@ -26,13 +31,13 @@ const FormModal = forwardRef(function FormModal(props, ref) {
       const textAreaElement = document.getElementById("text-area");
       // if scrolled to bottom
       if (
-        textAreaElement.scrollTop ===
-        textAreaElement.scrollHeight - textAreaElement.clientHeight - 1 //for some reason its always off by 1
+        textAreaElement.scrollTop >=
+        textAreaElement.scrollHeight - textAreaElement.clientHeight //for some reason its always off by 1
       ) {
         setScrollbarBottom(true);
         setOverflowGradientStyle(undefined);
         setAnimation({
-          bottom: "40px",
+          bottom: "70px",
           animationName: "arrowFadeOut",
           color: "transparent",
         });
@@ -44,7 +49,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
           MaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
         });
         setAnimation({
-          bottom: "30px",
+          bottom: "60px",
           animationName: "arrowFadeIn",
         });
         setRemoveDownArrow(false);
@@ -76,6 +81,12 @@ const FormModal = forwardRef(function FormModal(props, ref) {
               onScroll={checkScrollPosition}
               style={overflowGradientStyle}
             />
+          </div>
+          <div id="form-buttons">
+            <button>Submit</button>
+            <button type="button" onClick={props.toggleModal}>
+              Cancel
+            </button>
           </div>
         </form>
         <IconContext.Provider value={{ size: "40px" }}>

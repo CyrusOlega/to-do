@@ -122,6 +122,7 @@ input {
   height: 50px;
   width: 90%;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .input-form {
@@ -140,8 +141,8 @@ input {
   display: flex;
   justify-content: center;
   width: 90%;
-  height: calc(100% - 80px);
-  margin-bottom: 40px;
+  height: calc(100% - 130px);
+  /* margin-bottom: 40px; */
 }
 
 #text-area-container textarea {
@@ -157,25 +158,38 @@ input {
 #text-area-container textarea:focus {
   outline-width: 0;
 }
+#form-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 10px 0px 10px 0px;
+}
+#form-buttons button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-family: var(--font);
+}
 
 @keyframes arrowFadeIn {
   from {
     color: transparent;
-    bottom: 40px;
+    bottom: 70px;
   }
   to {
     color: black;
-    bottom: 30px;
+    bottom: 60px;
   }
 }
 @keyframes arrowFadeOut {
   from {
     color: black;
-    bottom: 30px;
+    bottom: 60px;
   }
   to {
     color: transparent;
-    bottom: 40px;
+    bottom: 70px;
   }
 }
 #down-arrow-button {
