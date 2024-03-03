@@ -11,8 +11,8 @@ const FormModal = forwardRef(function FormModal(props, ref) {
 
   //set isOverflow state when there is overflow (when the textarea becomes scrollable, even though the scrollbar is hidden through css)
   const checkOverflow = () => {
-    const textArea = document.getElementById("text-area");
-    if (textArea.clientHeight < textArea.scrollHeight) {
+    const textAreaElement = document.getElementById("text-area");
+    if (textAreaElement.clientHeight < textAreaElement.scrollHeight) {
       setOverflow(true);
     } else {
       setOverflow(false);
@@ -23,11 +23,11 @@ const FormModal = forwardRef(function FormModal(props, ref) {
   //also disable overflow gradient when scrolled to the bottom
   const checkScrollPosition = () => {
     if (isOverflow) {
-      const textArea = document.getElementById("text-area");
+      const textAreaElement = document.getElementById("text-area");
       // if scrolled to bottom
       if (
-        textArea.scrollHeight ===
-        textArea.clientHeight + textArea.scrollTop + 1 //for some reason its always off by 1
+        textAreaElement.scrollTop ===
+        textAreaElement.scrollHeight - textAreaElement.clientHeight - 1 //for some reason its always off by 1
       ) {
         setScrollbarBottom(true);
         setOverflowGradientStyle(undefined);
@@ -49,6 +49,14 @@ const FormModal = forwardRef(function FormModal(props, ref) {
         });
         setRemoveDownArrow(false);
       }
+    }
+  };
+
+  const scrollToBottom = () => {
+    if (!isScrollbarBottom) {
+      const textAreaElement = document.getElementById("text-area");
+      textAreaElement.scrollTop =
+        textAreaElement.scrollHeight - textAreaElement.clientHeight - 1;
     }
   };
 
@@ -82,6 +90,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
               onAnimationEnd={() => {
                 if (isScrollbarBottom) setRemoveDownArrow(true);
               }}
+              onClick={scrollToBottom}
             >
               <SlArrowDown />
             </button>
