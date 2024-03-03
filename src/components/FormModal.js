@@ -57,6 +57,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
     }
   };
 
+  //When down arrow button is clicked, scroll textarea all the way to the bottom
   const scrollToBottom = () => {
     if (!isScrollbarBottom) {
       const textAreaElement = document.getElementById("text-area");
