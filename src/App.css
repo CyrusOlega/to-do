@@ -90,6 +90,9 @@ button {
 }
 
 #form-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: inherit;
   width: 500px;
   height: 500px;
