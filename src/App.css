@@ -175,9 +175,15 @@ input {
     bottom: 40px;
   }
 }
-#down-arrow {
+#down-arrow-button {
+  background-color: transparent;
+  border: none;
   position: absolute;
-  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
 }

@@ -32,6 +32,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
         setScrollbarBottom(true);
         setOverflowGradientStyle(undefined);
         setAnimation({
+          bottom: "40px",
           animationName: "arrowFadeOut",
           color: "transparent",
         });
@@ -43,6 +44,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
           MaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
         });
         setAnimation({
+          bottom: "30px",
           animationName: "arrowFadeIn",
         });
         setRemoveDownArrow(false);
@@ -66,19 +68,21 @@ const FormModal = forwardRef(function FormModal(props, ref) {
               onScroll={checkScrollPosition}
               style={overflowGradientStyle}
             />
-            <IconContext.Provider value={{ size: "30px" }}>
+            <IconContext.Provider value={{ size: "100px" }}>
               {/* down arrow only appears when there is overflow and is not scrolled to the bottom.
                   when the animation ends, it checks if the textarea is scrolled all the way to the 
                   bottom. if it is, the removeDownArrow variable will be set to true, which will 
                   cause <SlArrowDown> to not render*/}
               {isOverflow && !renderDownArrow && (
-                <SlArrowDown
-                  id="down-arrow"
+                <button
+                  id="down-arrow-button"
                   style={animationStyle}
                   onAnimationEnd={() => {
                     if (isScrollbarBottom) setRemoveDownArrow(true);
                   }}
-                />
+                >
+                  <SlArrowDown />
+                </button>
               )}
             </IconContext.Provider>
           </div>
