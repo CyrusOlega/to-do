@@ -8,6 +8,22 @@ import FormModal from "./components/FormModal";
 
 function App() {
   const [modal, setModal] = useState(false);
+  const [stickyNotes, setStickyNotes] = useState([]);
+
+  //store form data
+  const storeFormData = (event) => {
+    event.preventDefault();
+    setStickyNotes((stickyNotes) => [
+      ...stickyNotes,
+      {
+        date: new Date(),
+        title: event.target.title.value,
+        content: event.target.content.value,
+      },
+    ]);
+
+    toggleModal();
+  };
 
   //toggle modal visibility
   const toggleModal = () => {
@@ -20,9 +36,15 @@ function App() {
 
   return (
     <div>
-      {modal && <FormModal ref={ref} toggleModal={toggleModal} />}
+      {modal && (
+        <FormModal
+          ref={ref}
+          toggleModal={toggleModal}
+          storeFormData={storeFormData}
+        />
+      )}
       <Header toggleModal={toggleModal} />
-      <Body />
+      <Body stickyNotes={stickyNotes} />
     </div>
   );
 }

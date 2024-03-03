@@ -2,7 +2,10 @@ import { forwardRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { SlArrowDown } from "react-icons/sl";
 
-const FormModal = forwardRef(function FormModal(props, ref) {
+const FormModal = forwardRef(function FormModal(
+  { toggleModal, storeFormData },
+  ref
+) {
   const [isOverflow, setOverflow] = useState(false);
   const [isScrollbarBottom, setScrollbarBottom] = useState(false);
   const [overflowGradientStyle, setOverflowGradientStyle] = useState(undefined);
@@ -66,17 +69,21 @@ const FormModal = forwardRef(function FormModal(props, ref) {
     }
   };
 
+  // const handleChange = (event) => {
+  //   event;
+  // };
+
   return (
     <div id="form-modal-container">
       <div id="form-modal" ref={ref}>
-        <form>
+        <form onSubmit={storeFormData}>
           <div id="input-container">
-            <input name="Title" placeholder="Title" className="input-form" />
+            <input name="title" placeholder="Title" className="input-form" />
           </div>
           <div id="text-area-container">
             <textarea
               id="text-area"
-              name="Content"
+              name="content"
               placeholder="Enter Task..."
               onKeyUp={checkOverflow}
               onScroll={checkScrollPosition}
@@ -85,7 +92,7 @@ const FormModal = forwardRef(function FormModal(props, ref) {
           </div>
           <div id="form-buttons">
             <button>Submit</button>
-            <button type="button" onClick={props.toggleModal}>
+            <button type="button" onClick={toggleModal}>
               Cancel
             </button>
           </div>
